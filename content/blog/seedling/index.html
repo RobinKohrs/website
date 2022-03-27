@@ -1,0 +1,60 @@
+---
+author: Alison Hill
+categories:
+- Theme features
+date: "2021-01-02"
+draft: false
+excerpt: Add tabbed sections to your posts.
+layout: single
+subtitle: How to add panelsets in plain markdown posts.
+title: Using panelsets
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Courtesy of panelset.js by Garrick Aden-Buie, from his xaringanExtra package: <a href="https://pkg.garrickadenbuie.com/xaringanExtra/#/panelset" class="uri">https://pkg.garrickadenbuie.com/xaringanExtra/#/panelset</a></p>
+<p>For example, this panelset:</p>
+<p>{{&lt; panelset class=“greetings” &gt;}}
+{{&lt; panel name=“Hello! :wave:” &gt;}}
+hello
+{{&lt; /panel &gt;}}
+{{&lt; panel name=“Goodbye :dash:” &gt;}}
+goodbye
+{{&lt; /panel &gt;}}
+{{&lt; /panelset &gt;}}</p>
+<p>Was created by combining this theme’s <code>panelset</code> and <code>panel</code> shortcodes:</p>
+<pre class="go"><code>{{&lt;/* panelset class=&quot;greetings&quot; */&gt;}}
+{{&lt;/* panel name=&quot;Hello! :wave:&quot; */&gt;}}
+  hello
+{{&lt;/* /panel */&gt;}}
+{{&lt;/* panel name=&quot;Goodbye :dash:&quot; */&gt;}}
+  goodbye
+{{&lt;/* /panel */&gt;}}
+{{&lt;/* /panelset */&gt;}}</code></pre>
+<p>You could also revert to HTML as well. For example, this panelset:</p>
+<div class="panelset">
+<div class="panel">
+<pre><code>&lt;div class=&quot;panel-name&quot;&gt;Question&lt;/div&gt;
+&lt;!-- Panel content --&gt;
+&lt;p&gt;Which came first: the :chicken: or the :egg:?&lt;/p&gt;</code></pre>
+</div>
+<div class="panel">
+<pre><code>&lt;div class=&quot;panel-name&quot;&gt;Answer :hatching_chick:&lt;/div&gt;
+&lt;!-- Panel content --&gt;
+&lt;p&gt;Team :egg: FTW!&lt;/p&gt;</code></pre>
+</div>
+</div>
+<p>Was created with this HTML code:</p>
+<pre class="html"><code>&lt;div class=&quot;panelset&quot;&gt;
+  &lt;div class=&quot;panel&quot;&gt;
+    &lt;div class=&quot;panel-name&quot;&gt;Question&lt;/div&gt;
+    &lt;!-- Panel content --&gt;
+    &lt;p&gt;Which came first: the :chicken: or the :egg:?&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;panel&quot;&gt;
+    &lt;div class=&quot;panel-name&quot;&gt;Answer :hatching_chick:&lt;/div&gt;
+    &lt;!-- Panel content --&gt;
+    &lt;p&gt;Team :egg: FTW!&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>

@@ -2,7 +2,7 @@
 action_label: Read More &rarr;
 action_link: /about
 action_type: text
-description: eh super!
+subheading: Maps, Graphs and Crunchy Cookies
 image_left: true
 images:
 - img/second_edit.webp

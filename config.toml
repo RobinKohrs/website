@@ -28,10 +28,10 @@ enableEmoji = true
     style = "github"
     
 [params]
-  orgName = "None"
-  orgLocal = "Anywhere"
+  orgName = "Robin Kohrs"
+  orgLocal = "Vienna"
   description = "Some description"
-  favicon = "/img/favicon.ico"
+  favicon = "/img/cookie.png"
   logo = ""
   mainSections = ["blog", "project", "talk"]
   navallcaps = true
@@ -43,7 +43,7 @@ enableEmoji = true
   # Place image file in `static` folder and specify image name here.
   sharing_image = "/img/papillons.jpg"
   # Twitter username (without @). Used when a visitor shares your site on Twitter.
-  twitter = "robinkohrs"
+  twitter = "KohrsRobin"
   
   # use a built-in color theme
   # one of: forest / grayscale / peach / plum /
@@ -92,7 +92,7 @@ enableEmoji = true
   [[params.social]]
       icon      = "twitter" # icon name without the 'fa-'
       icon_pack = "fab"
-      url       = "https://twitter.com/robinkohrs"
+      url       = "https://twitter.com/KohrsRobin"
 
 [taxonomies]
   category = "categories"
@@ -104,7 +104,7 @@ enableEmoji = true
   [[menu.header]]
     name = "About"
     title = "About Robin"
-    url = "/about/"
+    url = "/about"
     weight = 1
   [[menu.header]]
     name = "Blog"
@@ -112,13 +112,18 @@ enableEmoji = true
     url = "/blog/"
     weight = 2
   [[menu.header]]
-    name = "Projects"
-    title = "Project Portfolio"
-    url = "/project/"
+    name = "maps"
+    title = "some maps"
+    url = "/maps/"
     weight = 3
   [[menu.header]]
+    name = "graphs"
+    title = "some graphs"
+    url = "/graphs/"
+    weight = 4
+  [[menu.header]]
     name = "Photos"
-    title = "Some of my Photos"
+    title = "some photos"
     url = "/photos/"
     weight = 5
     
@@ -133,11 +138,6 @@ enableEmoji = true
     title = "Contact form"
     url = "/contact/"
     weight = 2
-  [[menu.footer]]
-    name = "Contributors"
-    title = "Contributors"
-    url = "/contributors/"
-    weight = 3
 
 # see https://gohugo.io/about/hugo-and-gdpr/    
 [privacy]

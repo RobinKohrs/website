@@ -1,7 +1,7 @@
 baseURL = "/"
 theme = "hugo-apero"
 languageCode = "en"
-title = "Zuhause"
+title = "Home"
 author = "Robin Kohrs"
 copyright = "" # set to override the auto generated copyright using org info and now year
 googleAnalytics = ""
@@ -106,11 +106,6 @@ enableEmoji = true
     title = "About Robin"
     url = "/about"
     weight = 1
-  [[menu.header]]
-    name = "Blog"
-    title = "Blog"
-    url = "/blog/"
-    weight = 2
   [[menu.header]]
     name = "maps"
     title = "some maps"

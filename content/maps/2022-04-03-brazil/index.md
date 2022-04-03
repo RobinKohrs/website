@@ -9,7 +9,6 @@ tags: []
 
 ## These are some of the maps of Brazil rendered with Blender
 
-
 ### Rio area
 
 ![](/img/brazil/zoom_rio.webp)

@@ -1,8 +1,8 @@
 ---
 date: "2019-02-25T13:38:41-06:00"
-description: Let's see if someone every finds this webiste in the rabbitholes of the internet with no SEO whatsoever.
+description: Let's see if someone ever finds this website in the rabbitholes of the internet with no SEO whatsoever.
 draft: false
-formspree_form_id: https://formspree.io/f/moqpwwva
+formspree_form_id: moqpwwva
 layout: split-right
 name: Contact Us Form
 show_poweredby_formspree: true

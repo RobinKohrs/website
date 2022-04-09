@@ -121,6 +121,11 @@ enableEmoji = true
     title = "some photos"
     url = "/photos/"
     weight = 5
+  [[menu.header]]
+    name = "DBs"
+    title = "some databses"
+    url = "/dbs/"
+    weight = 6
     
   # Configure footer  
   [[menu.footer]]

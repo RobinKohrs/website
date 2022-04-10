@@ -11,15 +11,15 @@ tags: []
 
 ### Rio area
 
-![](/img/brazil/zoom_rio.webp)
+![](/img/maps/brazil/zoom_rio.webp)
 
 ### Somwhere in Mato Grosso
 
-![](/img/brazil/zoom_mg.webp)
+![](/img/maps/brazil/zoom_mg.webp)
 
 ### The Amazon
 
-![](/img/brazil/zoom_amz.webp)
+![](/img/maps/brazil/zoom_amz.webp)
 
 
 

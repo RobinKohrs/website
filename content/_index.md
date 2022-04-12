@@ -5,7 +5,7 @@ action_type: text
 subheading: Maps, Graphs and Photos
 image_left: true
 images:
-- img/second_edit.webp
+- img/obereggen.webp
 show_action_link: true
 show_social_links: true
 subtitle: 

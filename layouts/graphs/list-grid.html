@@ -15,7 +15,7 @@
   </section>
   <section class="blog-content db flex-ns flex-row-ns flex-wrap-ns items-start mw8 center">
     <!-- .Pages will go down only one level deep-->
-    {{ $pages := (where .Pages "Type" "dbs") }}
+    {{ $pages := (where .Pages "Type" "graphs") }}
       {{ range $pages }}
         {{ .Scratch.Set "$root" $caller }}
         {{ partial "summary-grid" . }}

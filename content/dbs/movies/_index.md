@@ -7,7 +7,7 @@ cascade:
   sidebar:
     show_sidebar_adunit: true
     text_link_label: View all projects
-    text_link_url: /photos/
+    text_link_url: /dbs/movies/
 description: 
 layout: list-grid
 show_author_byline: true
@@ -22,7 +22,7 @@ sidebar:
   text_link_label: ""
   text_link_url: ""
   title: Where is this sidebar?
-title: Photos
+title: Movies
 ---
 
 ** No content for the project index. This file provides front matter for the blog including the layout and boolean options. **

@@ -1,0 +1,44 @@
+---
+title: Corona ARD Brennpunkte
+author: ''
+date: '2022-04-15'
+slug: []
+categories: []
+tags: []
+---
+```{r init, message=F, echo=F}
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE,  message = F)
+```
+
+```{r package}
+library(tidyverse)
+library(gt)
+library(here)
+```
+
+```{r dataload}
+path = here("static", "data", "graphs","ardbrennpunkte", "data_corona.csv")
+data = readr::read_csv(path)
+```
+
+```{r formatdata}
+data = data %>% 
+  rename(
+    "Datum" = 1,
+     "Thema" = 2,
+    "Dauer" = 3,
+    "Sprecher:In" = 4,
+    "Sender" = 5,
+    "Zuschauer:Innen" = 6,
+    "Quote" = 7
+  ) %>% 
+  select(-c(Quellen))
+```
+
+
+
+```{r gt}
+data %>% reactable::reactable()
+```
+

@@ -7,4 +7,12 @@ categories: []
 tags: []
 ---
 
-This post is going to go here
+![](/img/photos/nightskies/5.webp)
+
+![](/img/photos/nightskies/1.webp)
+
+![](/img/photos/nightskies/2.webp)
+
+![](/img/photos/nightskies/3.jpg)
+
+![](/img/photos/nightskies/4.jpg)

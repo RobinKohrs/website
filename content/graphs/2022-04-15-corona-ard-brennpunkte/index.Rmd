@@ -5,6 +5,7 @@ date: '2022-04-15'
 slug: []
 categories: []
 tags: []
+
 ---
 ```{r init, message=F, echo=F}
 library(knitr)
@@ -36,7 +37,11 @@ data = data %>%
   select(-c(Quellen))
 ```
 
-
+<style>
+.reactable{
+  font-family: mono;
+}
+</style>
 
 ```{r gt}
 data %>% reactable::reactable()

@@ -97,7 +97,8 @@ data %>%
     year = as.numeric(str_extract(Datum, "\\d{4}")) %>% as.factor(),
     month = lubridate::month(Datum),
     day = lubridate::day(Datum),
-    fake_date = glue::glue("2020-{month}-{day}") %>% as.Date
+    fake_date = glue::glue("2020-{month}-{day}") %>% as.Date,
+    Quote = ifelse(Quote == 0, NA, Quote)
   ) %>%
   ggplot(aes(fake_date, Quote, group = year)) +
   with_blur(geom_line(aes(color = year), size = 1.4, key_glyph="timeseries"),

@@ -5,7 +5,9 @@ date: '2022-04-15'
 slug: []
 categories: []
 tags: []
-
+output:
+  html_document:
+    css: ["custom.css"]
 ---
 ```{r init, message=F, echo=F}
 library(knitr)
@@ -24,7 +26,7 @@ data = readr::read_csv(path)
 ```
 
 ```{r formatdata}
-data = data %>% 
+data %>% 
   rename(
     "Datum" = 1,
      "Thema" = 2,
@@ -34,7 +36,11 @@ data = data %>%
     "Zuschauer:Innen" = 6,
     "Quote" = 7
   ) %>% 
-  select(-c(Quellen))
+  select(-c(Quellen)) %>% 
+  mutate(
+    Quote = sub("^(\\d{1,2},\\d{1}).*", "\\1", Quote),
+    Quote = str_replace(Quote, ",", "\\.") %>% as.numeric()
+  ) -> data
 ```
 
 <style>
@@ -44,6 +50,36 @@ data = data %>%
 </style>
 
 ```{r gt}
-data %>% reactable::reactable()
+library(reactable)
+library(htmltools)
+
+bar_style <- function(width = 1, fill = "#e6e6e6", height = "75%", align = c("left", "right"), color = NULL) {
+  align <- match.arg(align)
+  if (align == "left") {
+    position <- paste0(width * 100, "%")
+    image <- sprintf("linear-gradient(90deg, %1$s %2$s, transparent %2$s)", fill, position)
+  } else {
+    position <- paste0(100 - width * 100, "%")
+    image <- sprintf("linear-gradient(90deg, transparent %1$s, %2$s %1$s)", position, fill)
+  }
+  list(
+    backgroundImage = image,
+    backgroundSize = paste("100%", height),
+    backgroundRepeat = "no-repeat",
+    backgroundPosition = "center",
+    color = color
+  )
+}
+
+data %>% reactable::reactable(.,
+                              columns = list(Quote = colDef(
+                                style = function(value) {
+                                  bar_style(width = value / max(data$Quote),
+                                            fill = "#2c5e77",
+                                            color = "#fff")
+                                },
+                                align = "left",
+                                format = colFormat(digits = 1)
+                              )))
 ```
 

@@ -1,0 +1,80 @@
+---
+title: ARD Alle Brennpunkte
+author: ''
+date: '2022-04-17'
+slug: []
+categories: []
+tags: []
+---
+
+```{r init, message=F, echo=F}
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE,  message = F, warning = F)
+```
+
+```{r package}
+library(tidyverse)
+library(gt)
+library(here)
+library(lubridate)
+
+ggplot2::theme_set(
+  theme_light(base_family = "mono") +
+  theme(
+    legend.position = "bottom"
+  )
+)
+```
+
+```{r paths}
+path_data = here("static", "data", "graphs", "ardbrennpunkte", "combined.csv")
+data = readr::read_csv(path_data)
+```
+
+
+```{r pl1}
+library(scico)
+library(plotly)
+
+count_freq = function(date){
+  times = data$date %>% na.omit() %>% sort
+  start_time = date-30
+  end_time = date+30
+  sum(times > start_time & times < end_time)
+}
+
+
+data %>%
+  na.omit() %>%
+  mutate(
+    year = lubridate::year(date),
+    month = lubridate::month(date),
+    day = lubridate::day(date),
+    fake_date = as.Date(glue::glue("{2000}-{month}-{day}"), format = "%Y-%m-%d")
+  ) %>%
+  group_by(date) %>%
+  mutate(freq = count_freq(date)) %>%
+  ungroup() %>% 
+  mutate(
+    freq = log10(freq)
+  ) %>% 
+  ggplot(aes(fake_date, as.factor(year))) +
+  geom_point(aes(color = freq, text=thema), show.legend = F,
+             size = 5, alpha=.5) +
+  scale_x_date(date_labels = "%B") +
+  labs(
+    y = "",
+    x = "Date"
+  ) +
+  scale_color_scico(palette="bilbao") -> a
+
+ggplotly(a, height=900, width=752)
+
+ggsave(here("static", "img", "graphs", "brennpunkte_all.png"), height=16, width=10)
+
+```
+
+
+<!-- ![](/img/graphs/brennpunkte_all.png) -->
+
+

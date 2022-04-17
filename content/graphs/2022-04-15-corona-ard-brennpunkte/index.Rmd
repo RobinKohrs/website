@@ -134,8 +134,6 @@ data %>%
 ```
 
 ![](/graphs/ard_corona_brennpunkte.png)
-
-
 <hr>
 
 

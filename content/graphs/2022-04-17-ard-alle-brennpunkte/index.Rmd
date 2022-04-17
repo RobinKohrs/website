@@ -59,7 +59,7 @@ data %>%
     freq = log10(freq)
   ) %>% 
   ggplot(aes(fake_date, as.factor(year))) +
-  geom_point(aes(color = freq, text=thema), show.legend = F,
+  geom_point(aes(color = freq, text=paste0(thema)), show.legend = F,
              size = 5, alpha=.5) +
   scale_x_date(date_labels = "%B") +
   labs(
@@ -68,7 +68,7 @@ data %>%
   ) +
   scale_color_scico(palette="bilbao") -> a
 
-ggplotly(a, height=900, width=752)
+ggplotly(a, tooltip = "text", width=752, height = 900)
 
 ggsave(here("static", "img", "graphs", "brennpunkte_all.png"), height=16, width=10)
 

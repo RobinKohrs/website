@@ -11,7 +11,7 @@ output:
 ---
 ```{r init, message=F, echo=F}
 library(knitr)
-knitr::opts_chunk$set(echo = FALSE,  message = F)
+knitr::opts_chunk$set(echo = FALSE,  message = F, warning = F)
 ```
 
 ```{r package}
@@ -86,7 +86,7 @@ data %>% reactable::reactable(.,
                               ))
 ```
 
-
+<hr>
 
 ```{r}
 library(ggfx)
@@ -130,13 +130,13 @@ data %>%
     panel.ontop = F
   )  -> a
 
-  ggsave(here("static", "tp.png"))
+  ggsave(here("static", "graphs", "ard_corona_brennpunkte.png"))
 ```
 
-![](/tp.png)
+![](/graphs/ard_corona_brennpunkte.png)
 
 
-
+<hr>
 
 
 

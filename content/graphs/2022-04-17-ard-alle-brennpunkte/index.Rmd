@@ -78,6 +78,7 @@ ggsave(here("static", "img", "graphs", "brennpunkte_all.png"), height=16, width=
 
 <!-- ![](/img/graphs/brennpunkte_all.png) -->
 
+<hr>
 
 
 ```{r dataanalysis}
@@ -115,16 +116,21 @@ df %>%
     expand = expansion(mult=c(0,0.1))
   ) +
   labs(
-    title = "Wochentage mit den meisten ARD Brennpunkten",
+    title = "Jahre mit den meisten ARD Brennpunkten",
     x = ""
   ) +
   theme(
     legend.margin = margin(t=0, unit="cm")
-  )
+  ) -> pl
 
+ggsave(here("static", "img", "graphs", "brennpunkte", "years_n_brenn.png"), width=10, height = 16)
 
 ```
 
+
+<hr>
+
+![](/img/graphs/brennpunkte/years_n_brenn.png)
 
 
 ```{r wochentage}
@@ -158,10 +164,13 @@ df %>%
   ) +
   theme(
     legend.margin = margin(t=0, unit="cm")
-  )
+  ) -> pl
+
+ggsave(here("static", "img", "graphs", "brennpunkte", "wday_n_brenn.png"), width=10, height = 8)
 
 ```
 
+![](/img/graphs/brennpunkte/wday_n_brenn.png)
 
 
 

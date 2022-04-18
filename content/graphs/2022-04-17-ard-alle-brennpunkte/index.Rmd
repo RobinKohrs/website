@@ -76,7 +76,6 @@ ggsave(here("static", "img", "graphs", "brennpunkte_all.png"), height=16, width=
 ```
 
 
-
 ```{r dataanalysis}
 
 df = data %>%

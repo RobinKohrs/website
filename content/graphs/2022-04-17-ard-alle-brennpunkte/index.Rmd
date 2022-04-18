@@ -76,10 +76,6 @@ ggsave(here("static", "img", "graphs", "brennpunkte_all.png"), height=16, width=
 ```
 
 
-<!-- ![](/img/graphs/brennpunkte_all.png) -->
-
-<hr>
-
 
 ```{r dataanalysis}
 
@@ -92,6 +88,8 @@ df = data %>%
     wday = lubridate::wday(date, label = T))
 
 ```
+
+<hr>
 
 ```{r years}
 df %>%

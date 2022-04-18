@@ -21,7 +21,8 @@ library(lubridate)
 ggplot2::theme_set(
   theme_light(base_family = "mono") +
   theme(
-    legend.position = "bottom"
+    legend.position = "bottom",
+    panel.background = element_rect(fill="transparent")
   )
 )
 ```
@@ -57,9 +58,9 @@ data %>%
   ungroup() %>% 
   mutate(
     freq = log10(freq)
-  ) %>% 
+  ) %>%  
   ggplot(aes(fake_date, as.factor(year))) +
-  geom_point(aes(color = freq, text=paste0(thema)), show.legend = F,
+  geom_point(aes(color = freq, text=paste0("<b>", date, "</b> \n", thema)), show.legend = F,
              size = 5, alpha=.5) +
   scale_x_date(date_labels = "%B") +
   labs(
@@ -76,5 +77,92 @@ ggsave(here("static", "img", "graphs", "brennpunkte_all.png"), height=16, width=
 
 
 <!-- ![](/img/graphs/brennpunkte_all.png) -->
+
+
+
+```{r dataanalysis}
+
+df = data %>%
+  na.omit() %>%
+  mutate(
+    year = lubridate::year(date),
+    month = lubridate::month(date),
+    day = lubridate::day(date),
+    wday = lubridate::wday(date, label = T))
+
+```
+
+```{r years}
+df %>%
+  group_by(year) %>%
+  summarise(n = n()) %>% 
+  # mutate(wday = fct_relevel(wday, level)) %>% 
+  ggplot(aes(n, as.factor(year)))  +
+  geom_col(aes(fill=n)) +
+  scale_fill_scico(palette="lajolla",
+                   name = "",
+                   guide = guide_colorbar(
+                     barwidth = unit(15, "lines")
+                   )) +
+  geom_text(
+   aes(
+     label = n
+   ),
+   family = "mono",
+   hjust= -.5
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult=c(0,0.1))
+  ) +
+  labs(
+    title = "Wochentage mit den meisten ARD Brennpunkten",
+    x = ""
+  ) +
+  theme(
+    legend.margin = margin(t=0, unit="cm")
+  )
+
+
+```
+
+
+
+```{r wochentage}
+level = lubridate::wday(1:7, label = T) %>% as.character()
+level = c(level[2:length(level)], level[1])
+
+df %>%
+  group_by(wday) %>%
+  summarise(n = n()) %>% 
+  mutate(wday = fct_relevel(wday, level)) %>% 
+  ggplot(aes(n, wday))  +
+  geom_col(aes(fill=n)) +
+  scale_fill_scico(palette="lajolla",
+                   name = "",
+                   guide = guide_colorbar(
+                     barwidth = unit(15, "lines")
+                   )) +
+  geom_text(
+   aes(
+     label = n
+   ),
+   family = "mono",
+   hjust= -.5
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult=c(0,0.1))
+  ) +
+  labs(
+    title = "Wochentage mit den meisten ARD Brennpunkten",
+    x = ""
+  ) +
+  theme(
+    legend.margin = margin(t=0, unit="cm")
+  )
+
+```
+
+
+
 
 

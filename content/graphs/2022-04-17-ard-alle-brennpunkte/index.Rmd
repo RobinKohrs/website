@@ -157,7 +157,8 @@ df %>%
   ) +
   labs(
     title = "Wochentage mit den meisten ARD Brennpunkten",
-    x = ""
+    x = "",
+    y = ""
   ) +
   theme(
     legend.margin = margin(t=0, unit="cm")

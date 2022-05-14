@@ -1,5 +1,5 @@
 ---
-title: Hex Mapas of Vienna
+title: Vienna
 author: ''
 date: '2022-04-10'
 slug: []

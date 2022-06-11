@@ -1,0 +1,56 @@
+---
+title: Cafés in Wien
+author: ''
+date: '2022-06-10'
+slug: []
+categories: []
+tags: []
+---
+
+## Kaffehäuser in Wien in Wien
+
+
+```{r setup, message=F, echo=F}
+knitr::opts_chunk$set(echo = FALSE, 
+                      collapse = TRUE,
+                      message = F,
+                      comment = "#>")
+```
+
+
+
+```{r}
+library(tidyverse)
+library(sf)
+path_data = "./cafes_in_vienna.gpkg"
+```
+
+
+
+```{r}
+data = read_sf(path_data)
+```
+
+
+- Laut OSM gibt es in Wien `r nrow(data)` Cafés.
+
+- Von denen die eine Angabe haben, in welchem Bezirk sie sich befinden, sind die meisten im 1.
+
+<!-- <div style="display: flex; justify-content: center; text-align: center"> -->
+<div style="text-align: center">
+```{r}
+data %>% 
+  st_drop_geometry() %>% 
+  group_by(addr.postcode) %>% 
+  summarise(`Anzahl an Cafés` = n()) %>% 
+  arrange(desc(`Anzahl an Cafés`)) %>% 
+  rename(PLZ = 1) %>% 
+  knitr::kable()
+```
+</div>
+
+
+
+
+![](/img/maps/vienna_cfes/vienna_cafes.png)
+

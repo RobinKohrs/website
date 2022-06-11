@@ -14,7 +14,6 @@ h2{
 </style>
 
 
-
 ## K2
 ![](/img/maps/wireframe_himalaya/k2.png)
 

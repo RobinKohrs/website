@@ -1,0 +1,43 @@
+---
+title: Should I open a Café in Austria?
+author: ''
+date: '2022-09-21'
+slug: []
+categories: []
+tags: []
+---
+
+```{r message=F, echo=F}
+library(sf)
+library(tidyverse)
+library(here)
+data = read_sf(here("static", "data", "graphs", "cafes_oe", "cafes_oe_geo.gpkg"))
+```
+
+
+These are all the coffee shops I found in Austria. There seem to be rougly 16 thousand of them. Although I guess many slipped through my analysis althoug being in the osm-database. Anyways lets look at them in more detail to find out if and where I should open a coffee shop in Austria?
+
+![](/img/graphs/cafes_oe/mapAllCafes.png)
+
+## Where are the most?
+
+I am not really sure which administrative subdivision this is, but anyways, where are the most coffee shops?
+
+```{r echo=F}
+library(gt)
+data %>% 
+  st_drop_geometry() %>% 
+  count(city) %>% 
+  arrange(desc(n)) %>% 
+  rename(
+    City = 1,
+    `#`= 2
+  ) %>% 
+  slice_head(n=20) %>% 
+  gt()
+```
+
+
+
+
+

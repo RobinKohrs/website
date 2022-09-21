@@ -22,7 +22,7 @@ sidebar:
   text_link_label: ""
   text_link_url: ""
   title: Where is this sidebar?
-title: Photos
+title: Graphs
 ---
 
 ** No content for the project index. This file provides front matter for the blog including the layout and boolean options. **
